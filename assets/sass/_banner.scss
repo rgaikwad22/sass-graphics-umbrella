@@ -1,0 +1,54 @@
+.banner-section {
+  padding: 25px 0;
+  position: relative;
+  background-color: map-get($map: $colors, $key: primaryColor);
+   
+  .wrapper {
+    @include flex();
+  }
+
+  &__fig {
+    width: 50%;
+    max-height: 288px;
+    margin-right: 5%;
+
+    img {
+      border-radius: 20px;
+    }
+  }
+
+  &__right {
+    width: 50%;
+    @include flex();
+  }
+
+  &__heading {
+    margin-top: 40px;
+    color:  map-get($map: $colors, $key: white);
+    text-shadow: 0 1px map-get($map: $colors, $key: black);
+    text-align: center;
+    @include font($size: 25px);
+  }
+
+  .icon-prev::before,
+  .icon-next::before {
+    padding: 5px 11px;
+    border: 5px solid map-get($map: $colors, $key: white);
+    border-radius: 50%;
+    color: map-get($map: $colors, $key: white);
+    @include font($size: 28px);
+  }
+  
+  .icon-prev,
+  .icon-next {
+    width: 50px;
+    height: 50px;
+  }
+
+  &__btns {
+    margin: 0 auto;
+    @include flex();
+    @include justify($justify: space-between);
+    @include position(absolute, $top: 45%, $left: 6%, $right: 6%);
+  }
+}

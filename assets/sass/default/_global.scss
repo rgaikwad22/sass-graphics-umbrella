@@ -1,0 +1,115 @@
+// common styling starts here
+
+body {
+  overflow: hidden;
+  @include font($family: sans-serif);
+}
+
+a { text-decoration: none; }
+li { list-style-type: none; }
+
+.icon {
+  width: 13px;
+  height: 13px;
+  display: block;
+  position: relative;
+  color: map-get($map: $colors, $key: lightWhite);
+  text-indent: -9999px;
+}
+
+.icon:before,
+.icon::after {
+  display: block;
+  color: map-get($map: $colors, $key: secondaryColor);
+  text-indent: 0;
+  @include position($position: absolute, $top: 0, $left: 0);
+  @include transition(all, .2s, ease-in-out);
+  @include font($family: "FontAwesome");
+}
+
+.heading {
+  color: map-get($map: $colors, $key: lightBlack);
+  line-height: 60px;
+  text-transform: initial;
+  text-align: center;
+  @include font($size: 44px);
+  
+  @include responsive(map-get($devices, tablet)){
+    @include font($size: 40px);
+    line-height: 50px;
+  }
+  
+  @include responsive(map-get($devices, extralargePhone)){
+    @include font($size: 36px); 
+    line-height: 40px;
+  }
+  
+  @include responsive(map-get($devices, largePhone)){
+    @include font($size: 30px);
+    line-height: 30px;
+  }
+
+  @include responsive(map-get($devices, mediumPhone)){
+    @include font($size: 26px);
+  }
+}
+
+.btn {
+  padding: 5px;
+  display: inline-block;
+  border: none;
+  background-color: map-get($map: $colors, $key: primaryColor);
+  color: map-get($map: $colors, $key: white);
+  white-space: nowrap;
+  @include transition(all, .2s, ease-in-out);
+}
+
+img { @include img($width: 100%, $height: 100%, $objFit: cover); }
+
+.para {
+  margin-top: 10px;
+  color: map-get($map: $colors, $key: lightBlack);
+  line-height: 15px;
+  @include font($size: 10px);
+}
+
+.para--bold {
+  color: map-get($map: $colors, $key: black);
+  font-weight: 700; 
+}
+
+.text-green {
+  color: map-get($map: $colors, $key: primaryColor);
+}
+
+.port-icon::before {
+  padding: 28px;
+  border-radius: 50%;
+  background-color: map-get($map: $colors, $key: primaryColor);
+  color: map-get($map: $colors, $key: white);
+  @include font($size: 50px);
+  @include position(absolute, $left: 50%, $top: 50%);
+  @include transform($property: translate(-50%, -50%));
+}
+
+.port-icon {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 1px solid map-get($map: $colors, $key: lightGrey);
+}
+
+/*for wrapper*/
+.wrapper {
+  width: 100%;
+  max-width: 772px;
+  margin: 0 auto;
+}
+
+@each $key, $value in $iconContent {
+  .icon-#{$key}::before {
+    content: $value;
+  }
+}
+
+// common styling ends here

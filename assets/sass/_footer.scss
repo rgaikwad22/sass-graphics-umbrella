@@ -1,0 +1,65 @@
+.footer-section {
+
+
+  &__top-list {
+    @include flex();
+
+    li {
+      @include shortFlex(48%);
+    }
+  }
+
+  &__heading {
+    text-transform: uppercase;
+  }
+
+  &__media {
+    margin-top: 20px;
+  }
+
+  &__media-list {
+    margin-top: 10px;
+    @include flex();
+
+  }
+
+  &__archives-list {
+    margin-top: 10px;
+
+    li {
+      padding: 5px;
+      border-bottom: 1px dotted map-get($map: $colors, $key: lightGrey);
+    }
+
+    a {
+      @include font($size: 10px);
+      color: map-get($map: $colors, $key: secondaryColor);
+    }
+  }
+
+  &__contact-list {
+    margin-top: 10px;
+    
+    li:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    a {
+      @include font($size: 10px);
+      color: map-get($map: $colors, $key: secondaryColor);
+    }
+  }
+
+  &__form {
+    margin-top: 20px;
+
+    .subsribe-btn {
+      margin-top: 10px;
+    }
+
+    .input-grp input {
+      border: none;
+      border-bottom: 1px solid map-get($map: $colors, $key: secondaryColor);
+    }
+  }
+}
